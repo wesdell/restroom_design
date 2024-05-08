@@ -1,0 +1,55 @@
+@startuml
+class Building {
+-women: WomenRestroom
+-men: MenRestroom
+}
+
+class WomenRestroom {
+-toilets[2]: Toilet
+-accessible: Accessible
+-bathroomSinks[4]: BathroomSink
++chooseRestroom()
+}
+
+class MenRestroom {
+-toilets[2]: Toilet
+-urinals[4]: Urinal
+-accessible: Accessible
+-bathroomSinks[4]: BathroomSink
++chooseRestroom()
+}
+
+class BathroomSink {
+-available: boolean
++use()
+}
+
+class Accessible {
+-available: boolean
+-toiletPaper: boolean
+-openDoor: boolean
++openDoor()
++closeDoor()
++openToiletCover()
++closeToiletCover()
++pullLever()
+}
+
+class Toilet {
+-available: boolean
+-toiletPaper: boolean
+-openDoor: boolean
++use()
++openDoor()
++closeDoor()
++openToiletCover()
++closeToiletCover()
++pullLever()
+}
+
+class Urinal {
+-available: boolean
++use()
++pullLever()
+}
+@enduml

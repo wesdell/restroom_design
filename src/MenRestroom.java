@@ -27,4 +27,8 @@ public class MenRestroom {
   public  AccessibleToilet chooseAccessibleToilet() {
     return accessibleToilet;
   }
+
+  public Urinal chooseUrinals(int urinalNumber) {
+    return this.urinals[urinalNumber];
+  }
 }

@@ -1,4 +1,4 @@
 public class Building {
-  private WomenRestroom women;
-  private MenRestroom men;
+  private WomenRestroom womenRestroom;
+  private MenRestroom menRestroom;
 }

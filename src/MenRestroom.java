@@ -1,34 +1,30 @@
 public class MenRestroom {
-  public static final int TOILETS_AMOUNT = 4;
-  public static final int URINALS_AMOUNT = 4;
-
-  private Toilet[] toilets;
-  private AccessibleToilet accessibleToilet;
   private Urinal[] urinals;
 
   public MenRestroom() {
-    this.accessibleToilet = new AccessibleToilet();
-    this.toilets = new Toilet[TOILETS_AMOUNT];
-    this.toilets[0] = new Toilet();
-    this.toilets[1] = new Toilet();
-    this.toilets[2] = new Toilet();
-    this.toilets[3] = new Toilet();
-    this.urinals = new Urinal[URINALS_AMOUNT];
-    this.urinals[0] = new Urinal();
-    this.urinals[1] = new Urinal();
-    this.urinals[2] = new Urinal();
-    this.urinals[3] = new Urinal();
+    this.urinals = new Urinal[4];
+    for (int i = 0; i < urinals.length; i += 1) {
+      this.urinals[i] = new Urinal();
+    }
   }
 
-  public Toilet chooseToilet(int toiletNumber) {
-    return this.toilets[toiletNumber];
+  public Urinal useFirstAvailableCleanUrinal() {
+    for (Urinal urinal : urinals) {
+      if (urinal.isAvailableClean()) {
+        urinal.use();
+        return urinal;
+      }
+    }
+    return null;
   }
 
-  public  AccessibleToilet chooseAccessibleToilet() {
-    return accessibleToilet;
-  }
-
-  public Urinal chooseUrinals(int urinalNumber) {
-    return this.urinals[urinalNumber];
+  public String getServicesListAvailable() {
+    String list = "";
+    for (Urinal urinal : urinals) {
+      if (urinal.isAvailable()) {
+        list += urinal + "\n";
+      }
+    }
+    return list;
   }
 }

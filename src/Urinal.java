@@ -1,25 +1,21 @@
 public class Urinal {
-    private boolean available;
+  private boolean available;
+  private boolean clean;
 
-    public Urinal(){
-        this.available = true;
-    }
+  public Urinal() {
+    this.available = true;
+    this.clean = true;
+  }
 
-    public void use(int toiletNumber) {
-        if (!this.isAvailable()) {
-            System.out.println("El banio numero " + toiletNumber + " no esta disponible");
-            return;
-        }
-        this.available = false;
-        System.out.println("Usando el banio numero " + toiletNumber);
-    }
+  public boolean isAvailableClean() {
+    return this.available && this.clean;
+  }
 
-    public void leave(int toiletNumber) {
-        this.available = true;
-        System.out.println("Saliendo del banio numero " + toiletNumber);
-    }
+  public void use() {
+    this.available = false;
+  }
 
-    public boolean isAvailable() {
-        return this.available;
-    }
+  public boolean isAvailable() {
+    return this.available;
+  }
 }

@@ -5,7 +5,7 @@ class Building {
 }
 
 class WomenRestroom {
--toilets[2]: Toilet
+-toilets[4]: Toilet
 -accessible: Accessible
 +chooseRestroom()
 }

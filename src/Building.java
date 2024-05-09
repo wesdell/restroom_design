@@ -3,15 +3,19 @@ public class Building {
   private MenRestroom menRestroom;
 
   public Building() {
-    this.womenRestroom = new WomenRestroom();
     this.menRestroom = new MenRestroom();
+    this.womenRestroom = new WomenRestroom();
   }
 
-  public WomenRestroom getWomenRestroom() {
-    return womenRestroom;
+  public Urinal useFirstAvailableCleanUrinal() {
+    return this.menRestroom.useFirstAvailableCleanUrinal();
   }
 
-  public MenRestroom getMenRestroom() {
-    return menRestroom;
+//  public Toilet useFirstAvailableCleanToilet() {
+//    return this.womenRestroom.useFirstAvailableCleanToilet();
+//  }
+
+  public String getRestroomsAvailable() {
+    return this.menRestroom.getServicesListAvailable();
   }
 }

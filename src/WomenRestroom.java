@@ -1,4 +1,4 @@
 public class WomenRestroom {
   private Toilet[] toilets;
-  private AccesibleToilet accesibleToilet;
+  private AccessibleToilet accessibleToilet;
 }

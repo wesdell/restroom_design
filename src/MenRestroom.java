@@ -1,5 +1,5 @@
 public class MenRestroom {
   private Toilet[] toilets;
-  private AccesibleToilet accesibleToilet;
+  private AccessibleToilet accessibleToilet;
   private Urinal[] urinals;
 }

@@ -1,6 +1,6 @@
 public class Person {
-  private Genre genre;
-  private Disability disability;
+  private final Genre genre;
+  private final Disability disability;
   private Toilet toiletInUse;
   private Urinal urinalInUse;
 

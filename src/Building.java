@@ -1,6 +1,6 @@
 public class Building {
-  private WomenRestroom womenRestroom;
-  private MenRestroom menRestroom;
+  private final WomenRestroom womenRestroom;
+  private final MenRestroom menRestroom;
 
   public Building() {
     this.menRestroom = new MenRestroom();

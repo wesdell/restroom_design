@@ -1,5 +1,5 @@
 public class WomenRestroom {
-  private Toilet[] toilets;
+  private final Toilet[] toilets;
 
   public WomenRestroom() {
     this.toilets = new Toilet[4];

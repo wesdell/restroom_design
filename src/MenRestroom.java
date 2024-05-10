@@ -1,5 +1,5 @@
 public class MenRestroom {
-  private Urinal[] urinals;
+  private final Urinal[] urinals;
 
   public MenRestroom() {
     this.urinals = new Urinal[4];

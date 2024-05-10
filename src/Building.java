@@ -15,7 +15,16 @@ public class Building {
     return this.womenRestroom.useFirstAvailableCleanToilet();
   }
 
+  public DisabilityToilet useFirstAvailableCleanDisabilityToiletMan() {
+    return this.menRestroom.useFirstAvailableCleanDisabilityToilet();
+  }
+
+  public DisabilityToilet useFirstAvailableCleanDisabilityToiletWoman() {
+    return this.womenRestroom.useFirstAvailableCleanDisabilityToilet();
+  }
+
   public String getRestroomsAvailable() {
     return "Men restroom: \n" + this.menRestroom.getServicesListAvailable() + "Women restroom: \n" + this.womenRestroom.getServicesListAvailable();
   }
+
 }

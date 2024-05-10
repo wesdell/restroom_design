@@ -1,7 +1,9 @@
 public class MenRestroom {
   private final Urinal[] urinals;
+  private DisabilityToilet disabilityToilet;
 
   public MenRestroom() {
+    this.disabilityToilet = new DisabilityToilet();
     this.urinals = new Urinal[4];
     for (int i = 0; i < urinals.length; i += 1) {
       this.urinals[i] = new Urinal();
@@ -18,6 +20,13 @@ public class MenRestroom {
     return null;
   }
 
+  public DisabilityToilet useFirstAvailableCleanDisabilityToilet() {
+    if (this.disabilityToilet.isAvailableClean()) {
+      disabilityToilet.use();
+    }
+    return disabilityToilet;
+  }
+
   public String getServicesListAvailable() {
     String content = "";
     for (Urinal urinal : this.urinals) {
@@ -25,6 +34,7 @@ public class MenRestroom {
         content += urinal + "\n";
       }
     }
+    content += disabilityToilet + "\n";
     return content;
   }
 }

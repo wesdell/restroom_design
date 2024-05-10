@@ -3,6 +3,7 @@ public class Person {
   private final Disability disability;
   private Toilet toiletInUse;
   private Urinal urinalInUse;
+  private DisabilityToilet disabilityToiletInUse;
 
   public Person(Genre genre, Disability disability) {
     this.genre = genre;
@@ -12,13 +13,21 @@ public class Person {
   public void useRestroom(Building building) {
     switch (genre) {
       case MAN:
-        this.urinalInUse = building.useFirstAvailableCleanUrinal();
+        if (this.disability == Disability.YES) {
+          this.disabilityToiletInUse = building.useFirstAvailableCleanDisabilityToiletMan();
+        } else {
+          this.urinalInUse = building.useFirstAvailableCleanUrinal();
+        }
         if (this.urinalInUse == null) {
           System.out.println("There is no urinal available.");
         }
         break;
       case WOMAN:
-        this.toiletInUse = building.useFirstAvailableCleanToilet();
+        if (this.disability == Disability.YES) {
+          this.disabilityToiletInUse = building.useFirstAvailableCleanDisabilityToiletWoman();
+        } else {
+          this.toiletInUse = building.useFirstAvailableCleanToilet();
+        }
         if (this.toiletInUse == null) {
           System.out.println("There is no toilet available.");
         }

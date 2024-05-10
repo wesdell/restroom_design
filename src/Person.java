@@ -9,17 +9,35 @@ public class Person {
     this.disability = disability;
   }
 
-  public void useUrinal(Building building) {
+  public void useRestroom(Building building) {
     switch (genre) {
       case MAN:
         this.urinalInUse = building.useFirstAvailableCleanUrinal();
+        if (this.urinalInUse == null) {
+          System.out.println("There is no urinal available.");
+        }
         break;
       case WOMAN:
         this.toiletInUse = building.useFirstAvailableCleanToilet();
+        if (this.toiletInUse == null) {
+          System.out.println("There is no toilet available.");
+        }
         break;
-      default: {
+      default:
         break;
-      }
+    }
+  }
+
+  public void leaveCleanRestroom() {
+    switch (genre) {
+      case MAN:
+        this.urinalInUse.leaveClean();
+        break;
+      case WOMAN:
+        this.toiletInUse.leaveClean();
+        break;
+      default:
+        break;
     }
   }
 }

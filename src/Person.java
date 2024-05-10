@@ -14,9 +14,9 @@ public class Person {
       case MAN:
         this.urinalInUse = building.useFirstAvailableCleanUrinal();
         break;
-//      case WOMAN:
-//        this.toiletInUse = building.useFirstAvailableCleanToilet();
-//        break;
+      case WOMAN:
+        this.toiletInUse = building.useFirstAvailableCleanToilet();
+        break;
       default: {
         break;
       }

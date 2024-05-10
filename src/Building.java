@@ -11,9 +11,9 @@ public class Building {
     return this.menRestroom.useFirstAvailableCleanUrinal();
   }
 
-//  public Toilet useFirstAvailableCleanToilet() {
-//    return this.womenRestroom.useFirstAvailableCleanToilet();
-//  }
+  public Toilet useFirstAvailableCleanToilet() {
+    return this.womenRestroom.useFirstAvailableCleanToilet();
+  }
 
   public String getRestroomsAvailable() {
     return this.menRestroom.getServicesListAvailable();

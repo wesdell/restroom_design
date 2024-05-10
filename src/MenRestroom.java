@@ -20,7 +20,7 @@ public class MenRestroom {
 
   public String getServicesListAvailable() {
     String content = "";
-    for (Urinal urinal : urinals) {
+    for (Urinal urinal : this.urinals) {
       if (urinal.isAvailable()) {
         content += urinal + "\n";
       }

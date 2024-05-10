@@ -13,6 +13,12 @@ public class Urinal {
 
   public void use() {
     this.available = false;
+    this.clean = false;
+  }
+
+  public void leaveClean() {
+    this.available = true;
+    this.clean = true;
   }
 
   public boolean isAvailable() {

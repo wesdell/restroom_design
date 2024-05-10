@@ -19,12 +19,12 @@ public class MenRestroom {
   }
 
   public String getServicesListAvailable() {
-    String list = "";
+    String content = "";
     for (Urinal urinal : urinals) {
       if (urinal.isAvailable()) {
-        list += urinal + "\n";
+        content += urinal + "\n";
       }
     }
-    return list;
+    return content;
   }
 }

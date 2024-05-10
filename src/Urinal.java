@@ -18,4 +18,9 @@ public class Urinal {
   public boolean isAvailable() {
     return this.available;
   }
+
+  @Override
+  public String toString() {
+    return this.available ? "Available" : "Not Available";
+  }
 }

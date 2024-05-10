@@ -19,8 +19,12 @@ public class Urinal {
     return this.available;
   }
 
+  public String printAvailability() {
+    return this.available ? "Available" : "Not Available";
+  }
+
   @Override
   public String toString() {
-    return this.available ? "Available" : "Not Available";
+    return getClass().getName() + " (" + printAvailability() + ")";
   }
 }

@@ -16,6 +16,6 @@ public class Building {
   }
 
   public String getRestroomsAvailable() {
-    return this.menRestroom.getServicesListAvailable();
+    return "Men restroom: \n" + this.menRestroom.getServicesListAvailable();
   }
 }

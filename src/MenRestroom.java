@@ -34,7 +34,9 @@ public class MenRestroom {
         content += urinal + "\n";
       }
     }
-    content += disabilityToilet + "\n";
+    if (disabilityToilet.isAvailable()) {
+      content += disabilityToilet + "\n";
+    }
     return content;
   }
 }

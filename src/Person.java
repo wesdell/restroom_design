@@ -15,21 +15,27 @@ public class Person {
       case MAN:
         if (this.disability == Disability.YES) {
           this.disabilityToiletInUse = building.useFirstAvailableCleanDisabilityToiletMan();
+          if (this.disabilityToiletInUse == null) {
+            System.out.println("There is no disability toilet available.");
+          }
         } else {
           this.urinalInUse = building.useFirstAvailableCleanUrinal();
-        }
-        if (this.urinalInUse == null) {
-          System.out.println("There is no urinal available.");
+          if (this.urinalInUse == null) {
+            System.out.println("There is no urinal available.");
+          }
         }
         break;
       case WOMAN:
         if (this.disability == Disability.YES) {
           this.disabilityToiletInUse = building.useFirstAvailableCleanDisabilityToiletWoman();
+          if (this.disabilityToiletInUse == null) {
+            System.out.println("There is no disability toilet available.");
+          }
         } else {
           this.toiletInUse = building.useFirstAvailableCleanToilet();
-        }
-        if (this.toiletInUse == null) {
-          System.out.println("There is no toilet available.");
+          if (this.toiletInUse == null) {
+            System.out.println("There is no toilet available.");
+          }
         }
         break;
       default:

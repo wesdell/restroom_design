@@ -1,51 +1,72 @@
 @startuml
+abstract class Bath {
+  - clean: boolean
+  - available: boolean
+  + isAvailableAndClean(): boolean
+  + toString(): String
+  + leaveAndClean(): void
+  + use(): void
+  + isAvailable(): boolean
+  + printAvailability(): String
+}
 class Building {
--women: WomenRestroom
--men: MenRestroom
+  - womenRestroom: WomenRestroom
+  - menRestroom: MenRestroom
+  + useFirstAvailableCleanUrinal(): Urinal
+  + useFirstAvailableCleanToiletMan(): Toilet
+  + useFirstAvailableCleanToiletWoman(): Toilet
+  + useFirstAvailableCleanDisabilityToiletMan(): DisabilityToilet
+  + useFirstAvailableCleanDisabilityToiletWoman(): DisabilityToilet
+  + getRestroomsAvailable(): String
 }
-
-class WomenRestroom {
--toilets[4]: Toilet
--accessible: Accessible
-+chooseRestroom()
+enum Disability {
+  + YES:
+  + NO:
+  + valueOf(String): Disability
+  + values(): Disability[]
 }
-
+class DisabilityToilet
+enum Genre {
+  + WOMAN:
+  + MAN:
+  + valueOf(String): Genre
+  + values(): Genre[]
+}
+class Main {
+  + main(String[]): void
+}
 class MenRestroom {
--toilets[2]: Toilet
--urinals[4]: Urinal
--accessible: Accessible
-+chooseRestroom()
+  - urinals: Urinal[]
+  + useFirstAvailableCleanUrinal(): Urinal
+  + getServicesListAvailable(): String
+}
+class Person {
+  - disabilityToiletInUse: DisabilityToilet
+  - genre: Genre
+  - toiletInUse: Toilet
+  - disability: Disability
+  - urinalInUse: Urinal
+  + useRestroom(Building): void
+  + leaveCleanRestroom(): void
+}
+abstract class Restroom {
+  - disabilityToilet: DisabilityToilet
+  - toilets: Toilet[]
+  + getServicesListAvailable(): String
+  + getDisabilityToilet(): DisabilityToilet
+  + useFirstAvailableCleanDisabilityToilet(): DisabilityToilet
+  + getToilets(): Toilet[]
+  + useFirstAvailableCleanToilet(): Toilet
+}
+class Toilet
+class Urinal
+class WomenRestroom {
+  + getServicesListAvailable(): String
 }
 
-class Accessible {
--available: boolean
--toiletPaper: boolean
--openSeatCover: boolean
--openDoor: boolean
-+use()
-+openDoor()
-+closeDoor()
-+openSeatCover()
-+closeSeatCover()
-+pullHandle()
-}
-
-class Toilet {
--available: boolean
--toiletPaper: boolean
--openSeatCover: boolean
--openDoor: boolean
-+use()
-+openDoor()
-+closeDoor()
-+openSeatCover()
-+closeSeatCover()
-+pullHandle()
-}
-
-class Urinal {
--available: boolean
-+use()
-+pullHandle()
-}
+DisabilityToilet  --|>  Bath
+MenRestroom       --|>  Restroom
+Toilet            --|>  Bath
+Urinal            --|>  Bath
+WomenRestroom     --|>  Restroom
 @enduml

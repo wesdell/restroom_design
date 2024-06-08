@@ -1,9 +1,7 @@
-public class MenRestroom {
+public class MenRestroom extends Restroom {
   private final Urinal[] urinals;
-  private DisabilityToilet disabilityToilet;
 
   public MenRestroom() {
-    this.disabilityToilet = new DisabilityToilet();
     this.urinals = new Urinal[4];
     for (int i = 0; i < urinals.length; i += 1) {
       this.urinals[i] = new Urinal();
@@ -12,19 +10,12 @@ public class MenRestroom {
 
   public Urinal useFirstAvailableCleanUrinal() {
     for (Urinal urinal : urinals) {
-      if (urinal.isAvailableClean()) {
+      if (urinal.isAvailableAndClean()) {
         urinal.use();
         return urinal;
       }
     }
     return null;
-  }
-
-  public DisabilityToilet useFirstAvailableCleanDisabilityToilet() {
-    if (this.disabilityToilet.isAvailableClean()) {
-      disabilityToilet.use();
-    }
-    return disabilityToilet;
   }
 
   public String getServicesListAvailable() {
@@ -34,8 +25,13 @@ public class MenRestroom {
         content += urinal + "\n";
       }
     }
-    if (disabilityToilet.isAvailable()) {
-      content += disabilityToilet + "\n";
+    for (Toilet toilet : this.getToilets()) {
+      if (toilet.isAvailable()) {
+        content += toilet + "\n";
+      }
+    }
+    if (this.getDisabilityToilet().isAvailable()) {
+      content += this.getDisabilityToilet() + "\n";
     }
     return content;
   }

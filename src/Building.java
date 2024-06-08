@@ -11,7 +11,11 @@ public class Building {
     return this.menRestroom.useFirstAvailableCleanUrinal();
   }
 
-  public Toilet useFirstAvailableCleanToilet() {
+  public Toilet useFirstAvailableCleanToiletMan() {
+    return this.menRestroom.useFirstAvailableCleanToilet();
+  }
+
+  public Toilet useFirstAvailableCleanToiletWoman() {
     return this.womenRestroom.useFirstAvailableCleanToilet();
   }
 

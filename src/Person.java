@@ -32,7 +32,7 @@ public class Person {
             System.out.println("There is no disability toilet available.");
           }
         } else {
-          this.toiletInUse = building.useFirstAvailableCleanToilet();
+          this.toiletInUse = building.useFirstAvailableCleanToiletWoman();
           if (this.toiletInUse == null) {
             System.out.println("There is no toilet available.");
           }
@@ -46,10 +46,10 @@ public class Person {
   public void leaveCleanRestroom() {
     switch (genre) {
       case MAN:
-        this.urinalInUse.leaveClean();
+        this.urinalInUse.leaveAndClean();
         break;
       case WOMAN:
-        this.toiletInUse.leaveClean();
+        this.toiletInUse.leaveAndClean();
         break;
       default:
         break;
